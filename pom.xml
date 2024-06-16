@@ -37,6 +37,7 @@
         <shedlock.version>5.13.0</shedlock.version>
         <moneta.version>1.4.4</moneta.version>
         <open-api.version>2.5.0</open-api.version>
+        <flapdoodle.embed.version>4.11.0</flapdoodle.embed.version>
 
         <!-- plugins-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -109,6 +110,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>de.flapdoodle.embed</groupId>
+            <artifactId>de.flapdoodle.embed.mongo.spring30x</artifactId>
+            <version>${flapdoodle.embed.version}</version>
         </dependency>
 
         <!-- Kotlin-->
