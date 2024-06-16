@@ -9,6 +9,6 @@ data class ApiErrorV1(
 object ErrorCode {
 
     const val NOT_FOUND = "NotFound"
-    const val BAD_REQUEST = "BadRequest"
+    const val MODEL_OUTDATED = "ModelOutdated"
     const val INTERNAL_ERROR = "InternalError"
 }

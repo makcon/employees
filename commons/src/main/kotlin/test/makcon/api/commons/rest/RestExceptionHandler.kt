@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.RestControllerAdvice
 import org.valiktor.ConstraintViolationException
 import org.valiktor.i18n.toMessage
 import test.makcon.api.commons.dto.ApiErrorV1
-import test.makcon.api.commons.dto.ErrorCode.BAD_REQUEST
 import test.makcon.api.commons.dto.ErrorCode.INTERNAL_ERROR
+import test.makcon.api.commons.dto.ErrorCode.MODEL_OUTDATED
 import test.makcon.api.commons.dto.ErrorCode.NOT_FOUND
 import test.makcon.api.commons.dto.ValidationErrorV1
-import test.makcon.api.commons.exception.BadRequestException
 import test.makcon.api.commons.exception.ModelNotFoundException
+import test.makcon.api.commons.exception.OutdatedVersionException
 import test.makcon.api.commons.exception.ValidationException
 
 @RestControllerAdvice
@@ -25,9 +25,9 @@ class RestExceptionHandler {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     fun handle(exception: ModelNotFoundException) = createError(NOT_FOUND, exception)
 
-    @ExceptionHandler(BadRequestException::class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    fun handle(exception: BadRequestException) = createError(BAD_REQUEST, exception)
+    @ExceptionHandler(OutdatedVersionException::class)
+    @ResponseStatus(HttpStatus.CONFLICT)
+    fun handle(exception: OutdatedVersionException) = createError(MODEL_OUTDATED, exception)
 
     @ExceptionHandler(ConstraintViolationException::class)
     @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)

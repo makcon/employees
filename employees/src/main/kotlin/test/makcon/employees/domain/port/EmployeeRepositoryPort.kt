@@ -9,5 +9,7 @@ interface EmployeeRepositoryPort {
 
     fun create(employee: VersionedModel<Employee>, author: Author)
 
+    fun update(employee: VersionedModel<Employee>, author: Author)
+
     fun getById(employeeId: UUID): VersionedModel<Employee>
 }
