@@ -35,3 +35,8 @@ fun MoneyV1.toModel(prop: KProperty<Any>): MonetaryAmount = try {
         )
     )
 }
+
+fun MonetaryAmount.toDto() = MoneyV1(
+    amount = number.toDouble().toBigDecimal(),
+    currency = currency.currencyCode,
+)

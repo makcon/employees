@@ -4,9 +4,11 @@ import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 import test.makcon.api.commons.dto.AuthorType
 import test.makcon.api.commons.dto.AuthorV1
+import test.makcon.api.commons.dto.VersionedModelV1
 import test.makcon.api.commons.utils.uuidStrOf
 import test.makcon.employees.client.EmployeesClientV1
 import test.makcon.employees.client.request.CreateEmployeeRequestV1
+import test.makcon.employees.client.request.GetEmployeeRequestV1
 import test.makcon.employees.dto.EmployeeV1
 import java.util.*
 
@@ -22,5 +24,10 @@ class EmployeesControllerV1(private val client: EmployeesClientV1) {
             author = AuthorV1(AuthorType.USER, uuidStrOf()),
             data = data
         )
+    )
+
+    @GetMapping("/{id}")
+    fun get(@PathVariable id: UUID): VersionedModelV1<EmployeeV1> = client.get(
+        GetEmployeeRequestV1(employeeId = id)
     )
 }

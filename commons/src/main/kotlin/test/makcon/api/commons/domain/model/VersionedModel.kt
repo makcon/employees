@@ -6,7 +6,7 @@ import java.util.*
 
 data class VersionedModel<T>(
     val id: UUID = uuidOf(),
-    val version: Long = 0L,
+    val version: Long = 0,
     val createdAt: Instant = Instant.now(),
     val updatedAt: Instant = Instant.now(),
     val data: T,
