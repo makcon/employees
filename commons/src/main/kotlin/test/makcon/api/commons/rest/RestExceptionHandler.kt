@@ -7,14 +7,14 @@ import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestControllerAdvice
 import org.valiktor.ConstraintViolationException
 import org.valiktor.i18n.toMessage
+import test.makcon.api.commons.domain.exception.ModelNotFoundException
+import test.makcon.api.commons.domain.exception.OutdatedVersionException
+import test.makcon.api.commons.domain.exception.ValidationException
 import test.makcon.api.commons.dto.ApiErrorV1
 import test.makcon.api.commons.dto.ErrorCode.INTERNAL_ERROR
 import test.makcon.api.commons.dto.ErrorCode.MODEL_OUTDATED
 import test.makcon.api.commons.dto.ErrorCode.NOT_FOUND
 import test.makcon.api.commons.dto.ValidationErrorV1
-import test.makcon.api.commons.exception.ModelNotFoundException
-import test.makcon.api.commons.exception.OutdatedVersionException
-import test.makcon.api.commons.exception.ValidationException
 
 @RestControllerAdvice
 class RestExceptionHandler {

@@ -3,10 +3,10 @@ package test.makcon.employees.adapter
 import org.springframework.dao.OptimisticLockingFailureException
 import org.springframework.stereotype.Repository
 import org.springframework.transaction.annotation.Transactional
+import test.makcon.api.commons.domain.exception.ModelNotFoundException
+import test.makcon.api.commons.domain.exception.OutdatedVersionException
 import test.makcon.api.commons.domain.model.Author
 import test.makcon.api.commons.domain.model.VersionedModel
-import test.makcon.api.commons.exception.ModelNotFoundException
-import test.makcon.api.commons.exception.OutdatedVersionException
 import test.makcon.employees.adapter.mapper.toCreatedEvent
 import test.makcon.employees.adapter.mapper.toDoc
 import test.makcon.employees.adapter.mapper.toModel

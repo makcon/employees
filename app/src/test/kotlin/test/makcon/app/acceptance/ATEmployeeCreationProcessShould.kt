@@ -7,7 +7,7 @@ import org.springframework.http.MediaType
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
 import test.makcon.api.commons.adapter.repository.doc.MoneyDoc
-import test.makcon.api.commons.exception.ValidationCode
+import test.makcon.api.commons.domain.exception.ValidationCode
 import test.makcon.api.commons.utils.uuidStrOf
 import test.makcon.app.mother.EmployeeV1Mother
 import test.makcon.app.mother.MoneyV1Mother

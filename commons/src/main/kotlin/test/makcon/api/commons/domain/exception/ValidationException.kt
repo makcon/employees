@@ -1,4 +1,4 @@
-package test.makcon.api.commons.exception
+package test.makcon.api.commons.domain.exception
 
 class ValidationException(val constraints: List<ValidationConstraint>) : Exception()
 

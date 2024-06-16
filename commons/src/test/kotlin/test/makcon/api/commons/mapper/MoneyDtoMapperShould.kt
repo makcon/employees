@@ -7,10 +7,10 @@ import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
-import test.makcon.api.commons.exception.ValidationCode.INVALID_AMOUNT_SCALE
-import test.makcon.api.commons.exception.ValidationCode.UNKNOWN_CURRENCY
-import test.makcon.api.commons.exception.ValidationConstraint
-import test.makcon.api.commons.exception.ValidationException
+import test.makcon.api.commons.domain.exception.ValidationCode.INVALID_AMOUNT_SCALE
+import test.makcon.api.commons.domain.exception.ValidationCode.UNKNOWN_CURRENCY
+import test.makcon.api.commons.domain.exception.ValidationConstraint
+import test.makcon.api.commons.domain.exception.ValidationException
 import test.makcon.api.commons.mother.MoneyV1Mother
 import kotlin.random.Random
 
