@@ -13,7 +13,7 @@
     <name>${project.artifactId} ${project.version}</name>
 
     <dependencies>
-        <!-- service dependencies-->
+        <!-- internal dependencies-->
         <dependency>
             <groupId>test.makcon.api</groupId>
             <artifactId>admin-api</artifactId>
@@ -26,6 +26,10 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
         </dependency>
     </dependencies>
 

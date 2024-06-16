@@ -11,7 +11,7 @@ import java.util.*
 import kotlin.random.Random
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class UUIDTest {
+class UUIDShould {
 
     @Test
     internal fun `generate random UUID 4 when params are empty`() {

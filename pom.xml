@@ -35,6 +35,8 @@
         <kotest.version>5.9.1</kotest.version>
         <valiktor.version>0.12.0</valiktor.version>
         <shedlock.version>5.13.0</shedlock.version>
+        <moneta.version>1.4.4</moneta.version>
+        <open-api.version>2.5.0</open-api.version>
 
         <!-- plugins-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -82,6 +84,17 @@
                 <groupId>net.javacrumbs.shedlock</groupId>
                 <artifactId>shedlock-provider-mongo</artifactId>
                 <version>${shedlock.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.javamoney</groupId>
+                <artifactId>moneta</artifactId>
+                <version>${moneta.version}</version>
+                <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+                <version>${open-api.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

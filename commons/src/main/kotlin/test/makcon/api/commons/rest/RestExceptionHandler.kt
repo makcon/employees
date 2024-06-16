@@ -6,12 +6,15 @@ import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestControllerAdvice
 import org.valiktor.ConstraintViolationException
+import org.valiktor.i18n.toMessage
 import test.makcon.api.commons.dto.ApiErrorV1
 import test.makcon.api.commons.dto.ErrorCode.BAD_REQUEST
 import test.makcon.api.commons.dto.ErrorCode.INTERNAL_ERROR
 import test.makcon.api.commons.dto.ErrorCode.NOT_FOUND
+import test.makcon.api.commons.dto.ValidationErrorV1
 import test.makcon.api.commons.exception.BadRequestException
 import test.makcon.api.commons.exception.ModelNotFoundException
+import test.makcon.api.commons.exception.ValidationException
 
 @RestControllerAdvice
 class RestExceptionHandler {
@@ -29,10 +32,22 @@ class RestExceptionHandler {
     @ExceptionHandler(ConstraintViolationException::class)
     @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
     fun handle(exception: ConstraintViolationException) = exception.constraintViolations.map {
-        ApiErrorV1(
+        ValidationErrorV1(
             code = it.constraint.name,
-            message = it.constraint.name,
-            attributes = mapOf(it.property to it.value)
+            field = it.property,
+            value = it.value,
+            message = it.toMessage().message
+        )
+    }
+
+    @ExceptionHandler(ValidationException::class)
+    @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
+    fun handle(exception: ValidationException) = exception.constraints.map {
+        ValidationErrorV1(
+            code = it.code,
+            field = it.field,
+            value = it.value,
+            message = it.message
         )
     }
 
@@ -40,7 +55,6 @@ class RestExceptionHandler {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     fun handle(exception: Exception): ApiErrorV1 {
         log.error(exception) { "An unexpected error occurred" }
-
         return ApiErrorV1(
             code = INTERNAL_ERROR,
             message = "An internal error occurred, please contact support"
@@ -49,7 +63,6 @@ class RestExceptionHandler {
 
     private fun createError(code: String, exception: Exception): ApiErrorV1 {
         log.warn { exception.message }
-
         return ApiErrorV1(
             code = code,
             message = exception.message ?: "An error occurred, please contact support"
