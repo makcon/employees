@@ -8,4 +8,6 @@ import java.time.Year
 interface PublicHolidayRepositoryPort {
 
     fun getForYear(year: Year, country: String, page: PageRequest): PageResponse<PublicHoliday>
+
+    fun create(holidays: List<PublicHoliday>)
 }

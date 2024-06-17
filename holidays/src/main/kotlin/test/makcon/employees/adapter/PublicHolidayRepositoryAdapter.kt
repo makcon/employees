@@ -5,6 +5,7 @@ import test.makcon.api.commons.adapter.mapper.toDoc
 import test.makcon.api.commons.adapter.mapper.toModel
 import test.makcon.api.commons.domain.model.PageRequest
 import test.makcon.api.commons.domain.model.PageResponse
+import test.makcon.employees.adapter.mapper.toDoc
 import test.makcon.employees.adapter.mapper.toModel
 import test.makcon.employees.adapter.repository.PublicHolidayRepository
 import test.makcon.employees.domain.model.PublicHoliday
@@ -23,4 +24,8 @@ class PublicHolidayRepositoryAdapter(
             page = page.toDoc()
         )
         .toModel { it.toModel() }
+
+    override fun create(holidays: List<PublicHoliday>) {
+        repository.saveAll(holidays.map { it.toDoc() })
+    }
 }

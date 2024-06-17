@@ -39,6 +39,7 @@
         <moneta.version>1.4.4</moneta.version>
         <open-api.version>2.5.0</open-api.version>
         <flapdoodle.embed.version>4.11.0</flapdoodle.embed.version>
+        <faker.version>2.0.0-rc.4</faker.version>
 
         <!-- plugins-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -121,6 +122,11 @@
             <groupId>de.flapdoodle.embed</groupId>
             <artifactId>de.flapdoodle.embed.mongo.spring30x</artifactId>
             <version>${flapdoodle.embed.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.serpro69</groupId>
+            <artifactId>kotlin-faker</artifactId>
+            <version>${faker.version}</version>
         </dependency>
 
         <!-- Kotlin-->

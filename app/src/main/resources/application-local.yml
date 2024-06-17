@@ -6,3 +6,7 @@ test:
   makcon:
     transactions:
       enabled: false
+
+adapter:
+  type:
+    holidays: fake
