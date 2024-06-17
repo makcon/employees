@@ -2,6 +2,7 @@ package test.makcon.api.admin.rest
 
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
+import test.makcon.api.admin.dto.request.ApiFindEmployeesRequestParamsV1
 import test.makcon.api.admin.dto.request.ApiGetPublicHolidaysRequestParamsV1
 import test.makcon.api.admin.service.HolidaysService
 import test.makcon.api.commons.dto.AuthorType
@@ -11,10 +12,12 @@ import test.makcon.api.commons.dto.response.PageResponseV1
 import test.makcon.api.commons.utils.uuidStrOf
 import test.makcon.employees.client.EmployeesClientV1
 import test.makcon.employees.client.request.CreateEmployeeRequestV1
+import test.makcon.employees.client.request.FindEmployeesRequestV1
 import test.makcon.employees.client.request.GetEmployeeRequestV1
 import test.makcon.employees.client.request.UpdateEmployeeRequestV1
 import test.makcon.employees.dto.EmployeeV1
 import test.makcon.employees.dto.PublicHolidayV1
+import test.makcon.employees.dto.request.FindEmployeesRequestParamsV1
 import java.util.*
 
 @RestController
@@ -52,6 +55,13 @@ class EmployeesControllerV1(
     @GetMapping("/{id}")
     fun get(@PathVariable id: UUID): VersionedModelV1<EmployeeV1> = client.get(
         GetEmployeeRequestV1(employeeId = id)
+    )
+
+    @GetMapping
+    fun find(params: ApiFindEmployeesRequestParamsV1): PageResponseV1<VersionedModelV1<EmployeeV1>> = client.find(
+        FindEmployeesRequestV1(
+            FindEmployeesRequestParamsV1(params.page, params.sort)
+        )
     )
 
     // Path 'public' can be a var. Alternatively it can be received as request param

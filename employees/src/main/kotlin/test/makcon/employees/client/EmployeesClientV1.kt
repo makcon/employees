@@ -1,7 +1,9 @@
 package test.makcon.employees.client
 
 import test.makcon.api.commons.dto.VersionedModelV1
+import test.makcon.api.commons.dto.response.PageResponseV1
 import test.makcon.employees.client.request.CreateEmployeeRequestV1
+import test.makcon.employees.client.request.FindEmployeesRequestV1
 import test.makcon.employees.client.request.GetEmployeeRequestV1
 import test.makcon.employees.client.request.UpdateEmployeeRequestV1
 import test.makcon.employees.dto.EmployeeV1
@@ -14,4 +16,6 @@ interface EmployeesClientV1 {
     fun update(request: UpdateEmployeeRequestV1)
 
     fun get(request: GetEmployeeRequestV1): VersionedModelV1<EmployeeV1>
+
+    fun find(request: FindEmployeesRequestV1): PageResponseV1<VersionedModelV1<EmployeeV1>>
 }
