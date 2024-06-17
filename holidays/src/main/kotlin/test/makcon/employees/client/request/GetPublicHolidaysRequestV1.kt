@@ -1,10 +1,9 @@
 package test.makcon.employees.client.request
 
-import java.time.Year
+import test.makcon.employees.dto.request.GetPublicHolidaysRequestParamsV1
 import kotlin.time.Duration
 
 data class GetPublicHolidaysRequestV1(
-    val country: String,
-    val year: Year? = null,
+    val params: GetPublicHolidaysRequestParamsV1,
     val timeout: Duration? = null,
 )
