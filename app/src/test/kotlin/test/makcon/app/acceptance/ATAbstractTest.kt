@@ -14,7 +14,10 @@ import test.makcon.api.commons.dto.ApiErrorV1
 import test.makcon.api.commons.dto.ValidationErrorV1
 
 @AutoConfigureMockMvc
-@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
+@SpringBootTest(
+    webEnvironment = WebEnvironment.RANDOM_PORT,
+    properties = ["spring.profiles.active=test"]
+)
 abstract class ATAbstractTest {
 
     @Autowired

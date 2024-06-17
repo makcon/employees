@@ -2,6 +2,7 @@ package test.makcon.app.fake
 
 import io.github.serpro69.kfaker.faker
 import jakarta.annotation.PostConstruct
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
 import org.springframework.stereotype.Component
 import test.makcon.api.commons.dto.AuthorType.USER
 import test.makcon.api.commons.dto.AuthorV1
@@ -17,6 +18,10 @@ import java.time.Year
 import kotlin.random.Random
 
 @Component
+@ConditionalOnProperty(
+    name = ["fake.initializer.enabled"],
+    havingValue = "true",
+)
 class FakeDataInitializer(
     private val employeesClient: EmployeesClientV1,
     private val holidaysCommandHandler: PublicHolidaysCommandHandler
