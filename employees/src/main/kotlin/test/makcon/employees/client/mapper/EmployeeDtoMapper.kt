@@ -12,6 +12,7 @@ fun EmployeeV1.toModel() = Employee(
     position = position,
     email = email,
     salary = salary.toModel(::salary),
+    countryOfResidence = countryOfResidence,
 )
 
 fun VersionedModel<Employee>.toDto() = VersionedModelV1(
@@ -27,4 +28,5 @@ fun Employee.toDto() = EmployeeV1(
     position = position,
     email = email,
     salary = salary.toDto(),
+    countryOfResidence = countryOfResidence,
 )

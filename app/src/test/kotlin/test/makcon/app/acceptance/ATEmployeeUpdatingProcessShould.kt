@@ -79,7 +79,8 @@ class ATEmployeeUpdatingProcessShould : ATAbstractEmployeesTest() {
             name = givenData.name,
             position = givenData.position,
             email = givenData.email,
-            salary = MoneyDoc(givenData.salary.amount, givenData.salary.currency)
+            salary = MoneyDoc(givenData.salary.amount, givenData.salary.currency),
+            countryOfResidence = givenData.countryOfResidence,
         )
     }
 }

@@ -21,4 +21,5 @@ data class EmployeeDocData(
     val position: String,
     val email: String,
     val salary: MoneyDoc,
+    val countryOfResidence: String,
 )

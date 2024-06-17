@@ -7,4 +7,5 @@ data class Employee(
     val position: String,
     val email: String,
     val salary: MonetaryAmount,
+    val countryOfResidence: String,
 )

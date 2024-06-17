@@ -37,6 +37,7 @@ class ATEmployeeFetchingProcessShould : ATAbstractEmployeesTest() {
                 position = storedEmployee.data.position,
                 email = storedEmployee.data.email,
                 salary = storedEmployee.data.salary.toModel().toDto(),
+                countryOfResidence = storedEmployee.data.countryOfResidence,
             )
         )
     }

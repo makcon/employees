@@ -20,6 +20,7 @@ fun Employee.toDoc() = EmployeeDocData(
     position = position,
     email = email,
     salary = salary.toDoc(),
+    countryOfResidence = countryOfResidence,
 )
 
 fun EmployeeDoc.toModel() = VersionedModel(
@@ -31,6 +32,7 @@ fun EmployeeDoc.toModel() = VersionedModel(
         name = data.name,
         position = data.position,
         email = data.email,
-        salary = data.salary.toModel()
+        salary = data.salary.toModel(),
+        countryOfResidence = data.countryOfResidence,
     )
 )

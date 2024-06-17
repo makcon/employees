@@ -34,10 +34,12 @@ object EmployeeDocDataMother {
         position: String = uuidStrOf(),
         email: String = "john@mail.com", // use a random value, e.q. kotlin faker lib
         salary: MoneyDoc = MoneyDocMother.of(),
+        countryOfResidence: String = Locale.getISOCountries().random(),
     ) = EmployeeDocData(
         name = name,
         position = position,
         email = email,
         salary = salary,
+        countryOfResidence = countryOfResidence,
     )
 }
