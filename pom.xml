@@ -16,6 +16,7 @@
         <module>commons</module>
         <module>messaging</module>
         <module>employees</module>
+        <module>holidays</module>
     </modules>
 
     <groupId>test.makcon.api</groupId>
@@ -72,6 +73,11 @@
             <dependency>
                 <groupId>test.makcon.api</groupId>
                 <artifactId>employees</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>test.makcon.api</groupId>
+                <artifactId>holidays</artifactId>
                 <version>${project.version}</version>
             </dependency>
 

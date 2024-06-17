@@ -10,19 +10,25 @@
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>admin-api</artifactId>
+    <artifactId>holidays</artifactId>
     <name>${project.artifactId} ${project.version}</name>
 
     <dependencies>
-        <!-- internal dependencies -->
+        <!-- internal dependencies-->
         <dependency>
             <groupId>test.makcon.api</groupId>
-            <artifactId>employees</artifactId>
+            <artifactId>commons</artifactId>
+        </dependency>
+
+        <!-- external dependencies-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
         </dependency>
         <dependency>
-            <groupId>test.makcon.api</groupId>
-            <artifactId>holidays</artifactId>
+            <groupId>org.javamoney</groupId>
+            <artifactId>moneta</artifactId>
+            <type>pom</type>
         </dependency>
-        <!-- external dependencies -->
     </dependencies>
 </project>

@@ -2,6 +2,7 @@ package test.makcon.api.admin.rest
 
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
+import test.makcon.api.admin.service.HolidaysService
 import test.makcon.api.commons.dto.AuthorType
 import test.makcon.api.commons.dto.AuthorV1
 import test.makcon.api.commons.dto.VersionedModelV1
@@ -11,11 +12,16 @@ import test.makcon.employees.client.request.CreateEmployeeRequestV1
 import test.makcon.employees.client.request.GetEmployeeRequestV1
 import test.makcon.employees.client.request.UpdateEmployeeRequestV1
 import test.makcon.employees.dto.EmployeeV1
+import test.makcon.employees.dto.PublicHolidayV1
+import java.time.Year
 import java.util.*
 
 @RestController
 @RequestMapping("/v1/employees")
-class EmployeesControllerV1(private val client: EmployeesClientV1) {
+class EmployeesControllerV1(
+    private val client: EmployeesClientV1,
+    private val holidaysService: HolidaysService,
+) {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -46,4 +52,11 @@ class EmployeesControllerV1(private val client: EmployeesClientV1) {
     fun get(@PathVariable id: UUID): VersionedModelV1<EmployeeV1> = client.get(
         GetEmployeeRequestV1(employeeId = id)
     )
+
+    // Path 'public' can be a var. Alternatively it can be received as request param
+    @GetMapping("/{employeeId}/holidays/public")
+    fun getPublicHolidays(
+        @PathVariable employeeId: UUID,
+        @RequestParam year: Year?,
+    ): List<PublicHolidayV1> = holidaysService.getPublicHolidays(employeeId, year)
 }
